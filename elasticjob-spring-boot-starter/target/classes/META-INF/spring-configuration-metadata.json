@@ -1,0 +1,42 @@
+{
+  "groups": [
+    {
+      "name": "spring.elasticjob.datasource",
+      "type": "com.elasticjob.starter.JobDataSourceProperties",
+      "sourceType": "com.elasticjob.starter.JobDataSourceProperties"
+    },
+    {
+      "name": "spring.elasticjob.scheduled",
+      "type": "com.elasticjob.starter.ElasticJobProperties",
+      "sourceType": "com.elasticjob.starter.ElasticJobProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.elasticjob.datasource.driver-class-name",
+      "type": "java.lang.String",
+      "sourceType": "com.elasticjob.starter.JobDataSourceProperties"
+    },
+    {
+      "name": "spring.elasticjob.datasource.password",
+      "type": "java.lang.String",
+      "sourceType": "com.elasticjob.starter.JobDataSourceProperties"
+    },
+    {
+      "name": "spring.elasticjob.datasource.url",
+      "type": "java.lang.String",
+      "sourceType": "com.elasticjob.starter.JobDataSourceProperties"
+    },
+    {
+      "name": "spring.elasticjob.datasource.username",
+      "type": "java.lang.String",
+      "sourceType": "com.elasticjob.starter.JobDataSourceProperties"
+    },
+    {
+      "name": "spring.elasticjob.scheduled.job-config-map",
+      "type": "java.util.Map<java.lang.String,com.elasticjob.starter.ElasticJobProperties$JobConfig>",
+      "sourceType": "com.elasticjob.starter.ElasticJobProperties"
+    }
+  ],
+  "hints": []
+}

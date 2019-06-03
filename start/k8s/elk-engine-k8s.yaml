@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticjob-demo
+  namespace: elastic-job
+  labels:
+    app: elasticjob-demo
+spec:
+  type: NodePort
+  ports:
+    - port: 7783
+      nodePort: 31611
+  selector:
+    app: elasticjob-demo
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elasticjob-demo
+  labels:
+    app: elasticjob-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticjob-demo
+  template:
+    metadata:
+      labels:
+        app: elasticjob-demo
+    spec:
+      containers:
+        - name: elasticjob-demo
+          image: registry.cn-hangzhou.aliyuncs.com/engine/elasticjob-demo:latest
+#          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 7783
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod

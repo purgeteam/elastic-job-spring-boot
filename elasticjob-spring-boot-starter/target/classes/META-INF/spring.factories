@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.elasticjob.starter.JobRegistryCenterAutoConfiguration,\
+  com.elasticjob.starter.JobEventAutoConfiguration,\
+  com.elasticjob.starter.ElasticJobAutoConfiguration
