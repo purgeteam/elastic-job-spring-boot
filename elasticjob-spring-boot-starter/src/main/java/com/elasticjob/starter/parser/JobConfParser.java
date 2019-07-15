@@ -42,7 +42,7 @@ public class JobConfParser implements ApplicationContextAware {
                 throw new BeanCreationException(String.format("[JobConfParser] %s 初始化异常 请实现 %s", jobClass, SimpleJob.class));
             }
             ElasticJobScheduler config = AnnotationUtils.findAnnotation(jobClass, ElasticJobScheduler.class);
-            ElasticJobProperties.JobConfig jobConfig = createJobConfig(config);
+            ElasticJobProperties.JobConfig jobConfig = createJobConfig(applicationContext, config);
 
             // 构建SpringJobScheduler对象初始化
             SpringJobScheduler springJobScheduler = springJobSchedulerFactory.getSpringJobScheduler((SimpleJob) confBean, jobConfig);
@@ -52,10 +52,11 @@ public class JobConfParser implements ApplicationContextAware {
 
     }
 
-    private static ElasticJobProperties.JobConfig createJobConfig(ElasticJobScheduler config) {
+    private static ElasticJobProperties.JobConfig createJobConfig(ApplicationContext context, ElasticJobScheduler config) {
 
+        String cron = context.getEnvironment().resolvePlaceholders(config.cron());
         return new ElasticJobProperties.JobConfig(
-                config.name(), config.cron(),
+                config.name(), cron,
                 config.shardingTotalCount(), config.shardingItemParameters(),
                 config.jobParameters(), config.isEvent()
         );
