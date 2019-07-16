@@ -20,10 +20,13 @@ public @interface ElasticJobScheduler {
 
     /**
      * 作业名称
+     * 默认可以为"" 当 name 为 "" 或者 null 时
+     * name 默认设置为 (服务名_类名)
+     * 示例: springboot_Job
      *
      * @return string
      */
-    String name();
+    String name() default "";
 
     /**
      * cron表达式
