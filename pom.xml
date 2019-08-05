@@ -26,7 +26,6 @@
 
         <elasticjob-starter.version>0.0.1-SNAPSHOT</elasticjob-starter.version>
 
-        <latest.release.version>2.1.5</latest.release.version>
         <lombok.version>1.18.8</lombok.version>
         <guava.version>23.0</guava.version>
         <druid.version>1.1.16</druid.version>
@@ -45,13 +44,6 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
-            </dependency>
-
-            <!-- elastic-job -->
-            <dependency>
-                <groupId>com.dangdang</groupId>
-                <artifactId>elastic-job-lite-spring</artifactId>
-                <version>${latest.release.version}</version>
             </dependency>
 
             <dependency>

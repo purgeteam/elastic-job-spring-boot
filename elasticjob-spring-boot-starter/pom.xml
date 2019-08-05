@@ -11,6 +11,11 @@
 
     <artifactId>elasticjob-spring-boot-starter</artifactId>
 
+    <properties>
+        <latest.release.version>2.1.5</latest.release.version>
+        <curator.framework.version>2.12.0</curator.framework.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -39,12 +44,13 @@
         <dependency>
             <groupId>com.dangdang</groupId>
             <artifactId>elastic-job-lite-spring</artifactId>
+            <version>${latest.release.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
-            <version>2.12.0</version>
+            <version>${curator.framework.version}</version>
         </dependency>
 
         <dependency>
