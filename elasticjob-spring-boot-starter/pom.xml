@@ -13,7 +13,8 @@
 
     <properties>
         <latest.release.version>2.1.5</latest.release.version>
-        <curator.framework.version>2.12.0</curator.framework.version>
+        <curator.framework.version>2.13.0</curator.framework.version>
+        <curator.recipes.version>2.13.0</curator.recipes.version>
     </properties>
 
     <dependencies>
@@ -47,10 +48,16 @@
             <version>${latest.release.version}</version>
         </dependency>
 
+        <!-- 解决 elaticjob 内部依赖版本问题 -->
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
             <version>${curator.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>${curator.recipes.version}</version>
         </dependency>
 
         <dependency>
