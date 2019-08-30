@@ -2,7 +2,6 @@ package com.elasticjob.demo.scheduled;
 
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
-import com.elasticjob.demo.exception.DemoException;
 import com.elasticjob.starter.annotation.ElasticJobScheduler;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,15 +11,15 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @ElasticJobScheduler(
-        name = "AnnotationSimpleJob"
+        name = "AnnotationSimpleJob2"
         , cron = "0/8 * * * * ?"
         , shardingItemParameters = "0=Beijing,1=Shanghai,2=Guangzhou"
         , jobParameters = "123"
         , isEvent = false
 )
-public class AnnotationSimpleJob implements SimpleJob {
+public class AnnotationSimpleJob2 implements SimpleJob {
 
-//    @Transactional(rollbackForClassName = {"RuntimeException", "Exception"})
+    //    @Transactional(rollbackForClassName = {"RuntimeException", "Exception"})
     @Override
     public void execute(ShardingContext shardingContext) {
         log.info(String.format("Thread ID: %s, 作业分片总数: %s, " +
@@ -33,5 +32,6 @@ public class AnnotationSimpleJob implements SimpleJob {
                 shardingContext.getJobName(),
                 shardingContext.getJobParameter()
         ));
+        throw new NullPointerException();
     }
 }
