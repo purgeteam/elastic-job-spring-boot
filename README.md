@@ -14,8 +14,7 @@ Elastic-Job是一个分布式调度解决方案，由两个相互独立的子项
 由于项目为微服务，单模块可能在两个实例以上的数量，定时器就会出现多实例同时执行的情况。
 一般定时器缺少管理界面，无法监控定时器是否执行成功。
 市面上常见的解决方案为定时器加锁的操作，或者采用第3方分布式定时器。
-分布式定时器有多种方案，比如阿里内部的_ScheduledX，当当网的Elastic job，个人开源的_xxl-job等
-由于阿里scheduledx暂未开源，xxl-job为个人开源，调研_Elastic job，_基于改动较小，快速切换方案，_基本适用于本项目。_
+分布式定时器有多种方案，比如阿里内部的`ScheduledX`，当当网的`Elastic job`，个人开源的`xxl-job`等。
 
 ### 1.2 功能列表
 
@@ -33,15 +32,14 @@ Elastic-Job是一个分布式调度解决方案，由两个相互独立的子项
 
 ### 1.3 概念
 
-**分片：**任务的分布式执行，需要将一个任务拆分为多个独立的任务项，然后由分布式的服务器分别执行某一个或几个分片项。
+分片：任务的分布式执行，需要将一个任务拆分为多个独立的任务项，然后由分布式的服务器分别执行某一个或几个分片项。
 例如：有一个遍历数据库某张表的作业，现有2台服务器。为了快速的执行作业，那么每台服务器应执行作业的50%。 为满足此需求，可将作业分成2片，每台服务器执行1片。作业遍历数据的逻辑应为：服务器A遍历ID以奇数结尾的数据；服务器B遍历ID以偶数结尾的数据。 如果分成10片，则作业遍历数据的逻辑应为：每片分到的分片项应为ID%10，而服务器A被分配到分片项0,1,2,3,4；服务器B被分配到分片项5,6,7,8,9，直接的结果就是服务器A遍历ID以0-4结尾的数据；服务器B遍历ID以5-9结尾的数据。
 
-**历史轨迹：**Elastic-Job提供了事件追踪功能，可通过事件订阅的方式处理调度过程的重要事件，用于查询、统计和监控。
+历史轨迹：Elastic-Job提供了事件追踪功能，可通过事件订阅的方式处理调度过程的重要事件，用于查询、统计和监控。
 
 ### 1.4 本项目`elasticjob-spring-boot-starter`
 
-由于当当网_Elastic job处于1年间未更新阶段，相关jar处于可以使用阶段功能不全。_
-  _考虑到使用场景为多项目使用，将**elastic-job-lite-spring**简单封装便于使用。
+由于当当网_Elastic job处于1年间未更新阶段，相关jar处于可以使用阶段功能不全。考虑到使用场景为多项目使用，将`elastic-job-lite-spring`简单封装便于使用。
 
 ## 2.使用说明:
 
@@ -56,7 +54,9 @@ Elastic-Job是一个分布式调度解决方案，由两个相互独立的子项
 ```
 
 ### 2.2 配置
-配置bootstrap.yml或者application.yml
+
+配置`bootstrap.yml`或者`application.yml`。
+
 加入以下配置：
 
 ```
@@ -74,8 +74,8 @@ spring:
 
 ### 2.3 定时器实现方法编写
 
-创建定时器类（_唯一不同的地方在于将@Scheduled改为实现SimpleJob接口即可_）
-定时器实现方法编写在execute方法里。
+创建定时器类（唯一不同的地方在于将@Scheduled改为实现`SimpleJob`接口即可）
+定时器实现方法编写在`execute`方法里。
 
 ```java
 @Slf4j
@@ -112,7 +112,7 @@ public class MySimpleJob implements SimpleJob {
 }
 ```
 
-```java
+```
 log：Thread ID: 66, 作业分片总数: 1, 当前分片项: 0.当前参数: Beijing,作业名称: PropertiesSimpleJob.作业自定义参数: test
 ```
 
@@ -193,7 +193,7 @@ public class MyJobConfig {
 
 #### 2.4.2 简化Configuration类
 
-当然也可以用下面的`@Configuration`实现简化,配置`bootstrap.yml`或者`application.yml`
+当然也可以用下面的`@Configuration`实现简化,配置`bootstrap.yml`或者`application.yml`。
 
 ```yaml
 spring:
