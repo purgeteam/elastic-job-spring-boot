@@ -3,13 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
+        <groupId>com.purgeteam</groupId>
         <artifactId>elastic-job-spring-boot</artifactId>
-        <groupId>com.example</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.1.0.RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>elasticjob-spring-boot-starter</artifactId>
+    <version>${elasticjob-starter.version}</version>
 
     <properties>
         <latest.release.version>2.1.5</latest.release.version>
