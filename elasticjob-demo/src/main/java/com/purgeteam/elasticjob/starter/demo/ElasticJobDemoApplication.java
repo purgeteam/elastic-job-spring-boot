@@ -2,7 +2,6 @@ package com.purgeteam.elasticjob.starter.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * @author purgeyao
@@ -12,7 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ElasticJobDemoApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext run = SpringApplication.run(ElasticJobDemoApplication.class, args);
+        SpringApplication.run(ElasticJobDemoApplication.class, args);
     }
 
 }
