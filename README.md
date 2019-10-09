@@ -40,7 +40,7 @@ qq交流群:`812321371`
 
 历史轨迹：`Elastic-Job`提供了事件追踪功能，可通过事件订阅的方式处理调度过程的重要事件，用于查询、统计和监控。
 
-### 1.4 本项目`elasticjob-spring-boot-starter`
+### 1.4 封装`elasticjob`
 
 由于当当网`Elastic job`处于1年间未更新阶段，相关jar处于可以使用阶段功能不全。考虑到使用场景为多项目使用，将`elastic-job-lite-spring`简单封装便于使用。
 
