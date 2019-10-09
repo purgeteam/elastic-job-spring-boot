@@ -4,12 +4,12 @@ qq交流群:`812321371`
 
 ## 1 简介
 
-Elastic-Job是一个分布式调度解决方案，由两个相互独立的子项目Elastic-Job-Lite和Elastic-Job-Cloud组成。Elastic-Job-Lite定位为轻量级无中心化解决方案，使用jar包的形式提供分布式任务的协调服务。
-基于quartz 定时任务框架为基础的，因此具备quartz的大部分功能
-使用zookeeper做协调，调度中心，更加轻量级
+`Elastic-Job`是一个分布式调度解决方案，由两个相互独立的子项目`Elastic-Job-Lite`和`Elastic-Job-Cloud`组成。`Elastic-Job-Lite`定位为轻量级无中心化解决方案，使用jar包的形式提供分布式任务的协调服务。
+基于`quartz`定时任务框架为基础的，因此具备`quartz`的大部分功能
+使用`zookeeper`做协调，调度中心，更加轻量级
 支持任务的分片
-支持弹性扩容 ， 可以水平扩展 ， 当任务再次运行时，会检查当前的服务器数量，重新分片，分片结束之后才会继续执行任务
-失效转移，容错处理，当一台调度服务器宕机或者跟zookeeper断开连接之后，会立即停止作业，然后再去寻找其他空闲的调度服务器，来运行剩余的任务
+支持弹性扩容,可以水平扩展, 当任务再次运行时，会检查当前的服务器数量，重新分片，分片结束之后才会继续执行任务
+失效转移，容错处理，当一台调度服务器宕机或者跟`zookeeper`断开连接之后，会立即停止作业，然后再去寻找其他空闲的调度服务器，来运行剩余的任务
 提供运维界面，可以管理作业和注册中心。
 
 ### 1.1 使用场景
@@ -36,27 +36,31 @@ Elastic-Job是一个分布式调度解决方案，由两个相互独立的子项
 ### 1.3 概念
 
 分片：任务的分布式执行，需要将一个任务拆分为多个独立的任务项，然后由分布式的服务器分别执行某一个或几个分片项。
-例如：有一个遍历数据库某张表的作业，现有2台服务器。为了快速的执行作业，那么每台服务器应执行作业的50%。 为满足此需求，可将作业分成2片，每台服务器执行1片。作业遍历数据的逻辑应为：服务器A遍历ID以奇数结尾的数据；服务器B遍历ID以偶数结尾的数据。 如果分成10片，则作业遍历数据的逻辑应为：每片分到的分片项应为ID%10，而服务器A被分配到分片项0,1,2,3,4；服务器B被分配到分片项5,6,7,8,9，直接的结果就是服务器A遍历ID以0-4结尾的数据；服务器B遍历ID以5-9结尾的数据。
+例如：有一个遍历数据库某张表的作业，现有2台服务器。为了快速的执行作业，那么每台服务器应执行作业的`50%`。 为满足此需求，可将作业分成2片，每台服务器执行1片。作业遍历数据的逻辑应为：服务器A遍历ID以奇数结尾的数据；服务器B遍历ID以偶数结尾的数据。 如果分成10片，则作业遍历数据的逻辑应为：每片分到的分片项应为ID%10，而服务器A被分配到分片项`0,1,2,3,4`；服务器B被分配到分片项`5,6,7,8,9`，直接的结果就是服务器A遍历`ID`以`0-4`结尾的数据；服务器B遍历`ID`以`5-9`结尾的数据。
 
-历史轨迹：Elastic-Job提供了事件追踪功能，可通过事件订阅的方式处理调度过程的重要事件，用于查询、统计和监控。
+历史轨迹：`Elastic-Job`提供了事件追踪功能，可通过事件订阅的方式处理调度过程的重要事件，用于查询、统计和监控。
 
 ### 1.4 本项目`elasticjob-spring-boot-starter`
 
-由于当当网_Elastic job处于1年间未更新阶段，相关jar处于可以使用阶段功能不全。考虑到使用场景为多项目使用，将`elastic-job-lite-spring`简单封装便于使用。
+由于当当网`Elastic job`处于1年间未更新阶段，相关jar处于可以使用阶段功能不全。考虑到使用场景为多项目使用，将`elastic-job-lite-spring`简单封装便于使用。
 
 ## 2.使用说明:
 
 ### 2.1 添加依赖
 
+ps:`实际version版本请使用最新版`
+
 ```
 <dependency>
   <groupId>com.purgeteam</groupId>
   <artifactId>elasticjob-spring-boot-starter</artifactId>
-  <version>0.1.1.RELEASE</version>
+  <version>0.1.0.RELEASE</version>
 </dependency>
 ```
 
 ### 2.2 配置
+
+ps: 需要`mysql`,`zookeeper`支持，请提前搭建好。
 
 配置`bootstrap.yml`或者`application.yml`。
 
@@ -66,18 +70,18 @@ Elastic-Job是一个分布式调度解决方案，由两个相互独立的子项
 spring:
   elasticjob:
     datasource: # job需要的记录数据源
-      url: jdbc:mysql://10.1.1.97:3311/batch_log?useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
+      url: jdbc:mysql://127.0.0.1:3306/batch_log?useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: Rtqw123OpnmER
     regCenter: # 注册中心
-      serverList: 10.1.1.97:2181
+      serverList: 127.0.0.1:2181
       namespace: elasticJobDemo
 ```
 
 ### 2.3 定时器实现方法编写
 
-创建定时器类（唯一不同的地方在于将@Scheduled改为实现`SimpleJob`接口即可）
+创建定时器类（唯一不同的地方在于将`@Scheduled`改为实现`SimpleJob`接口即可）
 定时器实现方法编写在`execute`方法里。
 
 ```java
