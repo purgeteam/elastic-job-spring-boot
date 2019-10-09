@@ -52,7 +52,7 @@ Elastic-Job是一个分布式调度解决方案，由两个相互独立的子项
 <dependency>
   <groupId>com.purgeteam</groupId>
   <artifactId>elasticjob-spring-boot-starter</artifactId>
-  <version>0.1.0.RELEASE</version>
+  <version>0.1.1.RELEASE</version>
 </dependency>
 ```
 
