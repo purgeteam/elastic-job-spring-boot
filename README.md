@@ -235,6 +235,8 @@ public class PropertiesSimpleJobConfig {
 
 #### 2.4.3 注解方式配置(推荐方式)
 
+ps:这个注解包含了上述方式，简化定时器注入。
+
 继承`SimpleJob`实现方法`execute`。
 
 在`AnnotationSimpleJob`类上加入注解`@ElasticJobScheduler`即可。
