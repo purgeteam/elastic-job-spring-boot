@@ -54,7 +54,7 @@ ps:`实际version版本请使用最新版`
 <dependency>
   <groupId>com.purgeteam</groupId>
   <artifactId>elasticjob-spring-boot-starter</artifactId>
-  <version>0.1.0.RELEASE</version>
+  <version>0.1.1.RELEASE</version>
 </dependency>
 ```
 
@@ -128,7 +128,7 @@ log：Thread ID: 66, 作业分片总数: 1, 当前分片项: 0.当前参数: Bei
 #### 2.4.1 创建Configuration类
 
 将`ZookeeperRegistryCenter`和`JobEventConfiguration`注入。
-创建`JobScheduler``@Bean(initMethod = "init")`。
+创建`JobScheduler` `@Bean(initMethod = "init")`。
 在`mySimpleJobScheduler`方法里先通过`ElasticJobUtils#getLiteJobConfiguration`获取`LiteJobConfiguration`对象。
 创建`SpringJobScheduler`对象返回即可。
 
