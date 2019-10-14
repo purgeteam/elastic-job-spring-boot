@@ -1,5 +1,10 @@
 # elastic-job-spring-boot
 
+![License](https://img.shields.io/badge/SprinBoot-2.1.6RELEASE-green.svg)
+![License](https://img.shields.io/badge/JAVA-1.8+-green.svg)
+![License](https://img.shields.io/badge/maven-3.0+-green.svg)
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)]
+
 **qq交流群:**`812321371`
 
 ## 1 简介
