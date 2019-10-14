@@ -1,5 +1,6 @@
 # elastic-job-spring-boot
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.purgeteam/elastic-job-spring-boot-starter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:com.purgeteam%20AND%20a:elastic-job-spring-boot-starter)
 ![License](https://img.shields.io/badge/SpringBoot-2.1.5RELEASE-green.svg)
 ![License](https://img.shields.io/badge/JAVA-1.8+-green.svg)
 ![License](https://img.shields.io/badge/maven-3.0+-green.svg)
