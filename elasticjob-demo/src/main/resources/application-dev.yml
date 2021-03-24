@@ -1,10 +1,13 @@
 spring:
   elasticjob:
+
     datasource:
       url: jdbc:mysql://127.0.0.1:3306/elasticjob_log?useUnicode=true&characterEncoding=utf-8&verifyServerCertificate=false&useSSL=false&requireSSL=false
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 123123
+      # 是否载数据库
+      enable: true
     regCenter:
       serverList: 127.0.0.1:2181
       namespace: elasticJobDemo

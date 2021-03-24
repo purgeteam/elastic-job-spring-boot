@@ -15,6 +15,11 @@ public class JobDataSourceProperties {
 
     public static final String PREFIX = "spring.elasticjob.datasource";
 
+    /**
+     * 是否启用数据库 默认启用
+     */
+    private Boolean enable = true;
+
     private String url;
 
     private String driverClassName;

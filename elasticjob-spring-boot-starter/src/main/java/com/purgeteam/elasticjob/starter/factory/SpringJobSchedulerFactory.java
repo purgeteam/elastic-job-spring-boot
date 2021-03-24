@@ -24,6 +24,13 @@ public class SpringJobSchedulerFactory {
 
     public SpringJobSchedulerFactory(
             ElasticJobProperties elasticJobProperties,
+            ZookeeperRegistryCenter regCenter) {
+        this.elasticJobProperties = elasticJobProperties;
+        this.regCenter = regCenter;
+    }
+
+    public SpringJobSchedulerFactory(
+            ElasticJobProperties elasticJobProperties,
             ZookeeperRegistryCenter regCenter,
             JobEventConfiguration jobEventConfiguration) {
         this.elasticJobProperties = elasticJobProperties;
