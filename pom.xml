@@ -13,14 +13,14 @@
 
     <groupId>com.purgeteam</groupId>
     <artifactId>elastic-job-spring-boot</artifactId>
-    <version>0.1.1.RELEASE</version>
+    <version>0.1.2.RELEASE</version>
     <name>elastic-job-spring-boot</name>
     <description>Elastic Job Spring Boot</description>
     <url>https://github.com/purgeteam/elastic-job-spring-boot</url>
 
     <modules>
         <module>elasticjob-spring-boot-starter</module>
-        <module>elasticjob-demo</module>
+<!--        <module>elasticjob-demo</module>-->
     </modules>
 
     <!-- 版权许可 -->
@@ -65,7 +65,7 @@
     </distributionManagement>
 
     <properties>
-        <elasticjob-starter.version>0.1.1.RELEASE</elasticjob-starter.version>
+        <elasticjob-starter.version>0.1.2.RELEASE</elasticjob-starter.version>
 
         <lombok.version>1.18.8</lombok.version>
         <guava.version>23.0</guava.version>
